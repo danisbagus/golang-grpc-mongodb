@@ -1,0 +1,62 @@
+syntax = "proto3";
+
+package article;
+
+option go_package = "common/model";
+
+message Article {
+    string id = 1;
+    string author_id = 2;
+    string title = 3;
+    string content = 4;
+}
+
+message CreateArticleRequest {
+    Article article = 1;
+}
+
+message CreateArticleResponse {
+    Article Article = 1; 
+}
+
+message LisArticleRequest {
+
+}
+
+message LisArticleResponse {
+    Article Article = 1;
+}
+
+
+message ReadArticleRequest {
+    string article_id = 1;
+}
+
+message ReadArticleResponse {
+    Article Article = 1;
+}
+
+message UpdateArticleRequest {
+    Article Article = 1;
+}
+
+message UpdateArticleResponse {
+    Article Article = 1;
+}
+
+message DeleteArticleRequest {
+    string article_id = 1;
+}
+
+message DeleteArticleResponse {
+    string article_id = 1;
+}
+
+
+service BlogService {
+    rpc CreateArticle (CreateArticleRequest) returns (CreateArticleResponse);
+    rpc LisArticle (LisArticleRequest) returns (stream LisArticleResponse);
+    rpc ReadArticle (ReadArticleRequest) returns (ReadArticleResponse); 
+    rpc UpdateArticle (UpdateArticleRequest) returns (UpdateArticleResponse); 
+    rpc DeleteArticle (DeleteArticleRequest) returns (DeleteArticleResponse); 
+}
