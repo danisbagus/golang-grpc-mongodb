@@ -23,7 +23,7 @@ type server struct {
 }
 
 func main() {
-	fmt.Println("Running server ...")
+	fmt.Println("Running server...")
 
 	client := GetClient()
 	err := client.Ping(context.Background(), readpref.Primary())
@@ -46,6 +46,7 @@ func main() {
 	handler := handler.NewArticleHandler(articleUseCase)
 
 	model.RegisterArticleServiceServer(srv, handler)
+
 	if err := srv.Serve(listen); err != nil {
 		log.Fatalf("Failed to serve. %v", err)
 	}
