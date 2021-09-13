@@ -1,14 +1,12 @@
 package usecase
 
 import (
-	"github.com/danisbagus/golang-grpc-mongodb/common/model"
-	"github.com/danisbagus/golang-grpc-mongodb/server/dto"
 	"github.com/danisbagus/golang-grpc-mongodb/server/repo"
-	"go.mongodb.org/mongo-driver/bson/primitive"
 )
 
 type IArticleUsecase interface {
-	GetDetail(articleID primitive.ObjectID) (*model.Article, error)
+	CreateArticle(data *repo.Article) (*repo.Article, error)
+	GetDetail(articleID string) (*repo.Article, error)
 }
 
 type ArticleUsecase struct {
@@ -21,12 +19,18 @@ func NewArticleUsecase(repo repo.IArticleRepo) IArticleUsecase {
 	}
 }
 
-func (r ArticleUsecase) GetDetail(transactionID primitive.ObjectID) (*model.Article, error) {
-	data, err := r.repo.GetOneByID(transactionID)
+func (r ArticleUsecase) CreateArticle(data *repo.Article) (*repo.Article, error) {
+	res, err := r.repo.Create(data)
 	if err != nil {
 		return nil, err
 	}
+	return res, nil
+}
 
-	response := dto.NewGetDetailArticleResponse(data)
-	return response, nil
+func (r ArticleUsecase) GetDetail(articleID string) (*repo.Article, error) {
+	data, err := r.repo.GetOneByID(articleID)
+	if err != nil {
+		return nil, err
+	}
+	return data, nil
 }

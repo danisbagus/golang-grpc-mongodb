@@ -19,7 +19,8 @@ type Article struct {
 }
 
 type IArticleRepo interface {
-	GetOneByID(articleID primitive.ObjectID) (*Article, error)
+	Create(data *Article) (*Article, error)
+	GetOneByID(articleID string) (*Article, error)
 }
 
 type ArticleRepo struct {
@@ -32,9 +33,39 @@ func NewArticleRepo(db *mongo.Client) IArticleRepo {
 	}
 }
 
-func (r ArticleRepo) GetOneByID(articleID primitive.ObjectID) (*Article, error) {
+func (r ArticleRepo) Create(data *Article) (*Article, error) {
+	collection := r.db.Database("golang_grpc_mongodb").Collection("articles")
 
-	filter := bson.M{"_id": articleID}
+	res, err := collection.InsertOne(context.TODO(), data)
+	if err != nil {
+		return nil, status.Errorf(
+			codes.Internal,
+			fmt.Sprintf("[Create] Error on create article: %v", err),
+		)
+	}
+
+	oid, ok := res.InsertedID.(primitive.ObjectID)
+	if !ok {
+		return nil, status.Errorf(
+			codes.Internal,
+			fmt.Sprintf("[Create] Cannot convert to OID: %v", err),
+		)
+	}
+
+	data.ID = oid
+	return data, nil
+}
+
+func (r ArticleRepo) GetOneByID(articleID string) (*Article, error) {
+	oid, err := primitive.ObjectIDFromHex(articleID)
+	if err != nil {
+		return nil, status.Errorf(
+			codes.InvalidArgument,
+			fmt.Sprintf("Cannot parse ID: %v", err),
+		)
+	}
+
+	filter := bson.M{"_id": oid}
 	data := &Article{}
 
 	collection := r.db.Database("golang_grpc_mongodb").Collection("articles")
@@ -44,12 +75,12 @@ func (r ArticleRepo) GetOneByID(articleID primitive.ObjectID) (*Article, error) 
 		if err == mongo.ErrNoDocuments {
 			return nil, status.Errorf(
 				codes.NotFound,
-				fmt.Sprintf("[ReadArticle] Cannot find article with specified ID: %v, error: %v", articleID, err),
+				fmt.Sprintf("[GetOneByID] Cannot find article with specified ID: %v, error: %v", oid, err),
 			)
 		} else {
 			return nil, status.Errorf(
 				codes.Internal,
-				fmt.Sprintf("[ReadArticle] Internal error: %v", err),
+				fmt.Sprintf("[GetOneByID] Internal error: %v", err),
 			)
 		}
 	}

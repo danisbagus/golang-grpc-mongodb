@@ -5,10 +5,8 @@ import (
 	"fmt"
 
 	"github.com/danisbagus/golang-grpc-mongodb/common/model"
+	"github.com/danisbagus/golang-grpc-mongodb/server/dto"
 	"github.com/danisbagus/golang-grpc-mongodb/server/usecase"
-	"go.mongodb.org/mongo-driver/bson/primitive"
-	"google.golang.org/grpc/codes"
-	"google.golang.org/grpc/status"
 )
 
 type ServerHandler struct {
@@ -21,25 +19,33 @@ func NewArticleHandler(usecase usecase.IArticleUsecase) *ServerHandler {
 	}
 }
 
-func (r ServerHandler) ReadArticle(ctx context.Context, req *model.ReadArticleRequest) (*model.ReadArticleResponse, error) {
-	fmt.Println("Read article request")
+func (r ServerHandler) CreateArticle(ctx context.Context, req *model.CreateArticleRequest) (*model.CreateArticleResponse, error) {
+	fmt.Println("Create article request")
 
-	articleID := req.GetArticleId()
-	oid, err := primitive.ObjectIDFromHex(articleID)
-	if err != nil {
-		return nil, status.Errorf(
-			codes.InvalidArgument,
-			fmt.Sprintf("Cannot parse ID: %v", err),
-		)
-	}
+	article := dto.NewCreateArticleRequest(req.Article)
 
-	data, err := r.usecase.GetDetail(oid)
+	data, err := r.usecase.CreateArticle(article)
 	if err != nil {
 		return nil, err
 	}
 
-	return &model.ReadArticleResponse{
-		Article: data,
-	}, nil
+	response := dto.NewCreateArticleResponse(data)
+
+	return response, nil
+}
+
+func (r ServerHandler) ReadArticle(ctx context.Context, req *model.ReadArticleRequest) (*model.ReadArticleResponse, error) {
+	fmt.Println("Read article request")
+
+	articleID := req.GetArticleId()
+
+	data, err := r.usecase.GetDetail(articleID)
+	if err != nil {
+		return nil, err
+	}
+
+	response := dto.NewGetDetailArticleResponse(data)
+
+	return response, nil
 
 }
