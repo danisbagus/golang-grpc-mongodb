@@ -21,7 +21,8 @@ func main() {
 	defer connection.Close()
 	articleClient := model.NewArticleServiceClient(connection)
 
-	readArticle(articleClient)
+	createArticle(articleClient)
+	// readArticle(articleClient)
 }
 
 func readArticle(client model.ArticleServiceClient) {
@@ -32,7 +33,26 @@ func readArticle(client model.ArticleServiceClient) {
 	res, err := client.ReadArticle(context.Background(), req)
 
 	if err != nil {
-		log.Fatalf("Error while calling Greet RPC: %v\n", err)
+		log.Fatalf("Error while calling ReadArticle RPC: %v\n", err)
 	}
 	log.Printf("Article was read: %v\n", res)
+}
+
+func createArticle(client model.ArticleServiceClient) {
+	fmt.Println("Creating new article")
+
+	req := &model.CreateArticleRequest{
+		Article: &model.Article{
+			AuthorId: "3",
+			Title:    "Editor IDE",
+			Content:  "Visual Studio Code is on of the best Editor IDE in the world",
+		},
+	}
+
+	res, err := client.CreateArticle(context.Background(), req)
+
+	if err != nil {
+		log.Fatalf("Error while calling CreateArticle RPC: %v\n", err)
+	}
+	log.Printf("Article has been created: %v\n", res)
 }
