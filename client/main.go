@@ -21,8 +21,10 @@ func main() {
 	defer connection.Close()
 	articleClient := model.NewArticleServiceClient(connection)
 
-	createArticle(articleClient)
-	// readArticle(articleClient)
+	// createArticle(articleClient)
+	readArticle(articleClient)
+	updateArticle(articleClient)
+	readArticle(articleClient)
 }
 
 func readArticle(client model.ArticleServiceClient) {
@@ -55,4 +57,24 @@ func createArticle(client model.ArticleServiceClient) {
 		log.Fatalf("Error while calling CreateArticle RPC: %v\n", err)
 	}
 	log.Printf("Article has been created: %v\n", res)
+}
+
+func updateArticle(clinet model.ArticleServiceClient) {
+	fmt.Println("Update article")
+
+	req := &model.UpdateArticleRequest{
+		Article: &model.Article{
+			Id:       "613d7b91a5253d1732be46f5",
+			AuthorId: "3",
+			Title:    "MSI",
+			Content:  "Visual Studio Code is on of the best laptop brand in the world",
+		},
+	}
+
+	res, err := clinet.UpdateArticle(context.Background(), req)
+	if err != nil {
+		log.Fatalf("Error while calling UpdateArticle RPC: %v\n", err)
+	}
+
+	log.Printf("Article has been updated: %v\n", res)
 }
