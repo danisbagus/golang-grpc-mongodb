@@ -604,34 +604,34 @@ var file_common_model_article_proto_rawDesc = []byte{
 	0x63, 0x6c, 0x65, 0x49, 0x64, 0x22, 0x36, 0x0a, 0x15, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x41,
 	0x72, 0x74, 0x69, 0x63, 0x6c, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x1d,
 	0x0a, 0x0a, 0x61, 0x72, 0x74, 0x69, 0x63, 0x6c, 0x65, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01,
-	0x28, 0x09, 0x52, 0x09, 0x61, 0x72, 0x74, 0x69, 0x63, 0x6c, 0x65, 0x49, 0x64, 0x32, 0x90, 0x03,
-	0x0a, 0x0b, 0x42, 0x6c, 0x6f, 0x67, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x12, 0x4e, 0x0a,
-	0x0d, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x41, 0x72, 0x74, 0x69, 0x63, 0x6c, 0x65, 0x12, 0x1d,
-	0x2e, 0x61, 0x72, 0x74, 0x69, 0x63, 0x6c, 0x65, 0x2e, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x41,
-	0x72, 0x74, 0x69, 0x63, 0x6c, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x1e, 0x2e,
-	0x61, 0x72, 0x74, 0x69, 0x63, 0x6c, 0x65, 0x2e, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x41, 0x72,
-	0x74, 0x69, 0x63, 0x6c, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x47, 0x0a,
-	0x0a, 0x4c, 0x69, 0x73, 0x41, 0x72, 0x74, 0x69, 0x63, 0x6c, 0x65, 0x12, 0x1a, 0x2e, 0x61, 0x72,
-	0x74, 0x69, 0x63, 0x6c, 0x65, 0x2e, 0x4c, 0x69, 0x73, 0x41, 0x72, 0x74, 0x69, 0x63, 0x6c, 0x65,
-	0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x1b, 0x2e, 0x61, 0x72, 0x74, 0x69, 0x63, 0x6c,
-	0x65, 0x2e, 0x4c, 0x69, 0x73, 0x41, 0x72, 0x74, 0x69, 0x63, 0x6c, 0x65, 0x52, 0x65, 0x73, 0x70,
-	0x6f, 0x6e, 0x73, 0x65, 0x30, 0x01, 0x12, 0x48, 0x0a, 0x0b, 0x52, 0x65, 0x61, 0x64, 0x41, 0x72,
-	0x74, 0x69, 0x63, 0x6c, 0x65, 0x12, 0x1b, 0x2e, 0x61, 0x72, 0x74, 0x69, 0x63, 0x6c, 0x65, 0x2e,
-	0x52, 0x65, 0x61, 0x64, 0x41, 0x72, 0x74, 0x69, 0x63, 0x6c, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65,
-	0x73, 0x74, 0x1a, 0x1c, 0x2e, 0x61, 0x72, 0x74, 0x69, 0x63, 0x6c, 0x65, 0x2e, 0x52, 0x65, 0x61,
-	0x64, 0x41, 0x72, 0x74, 0x69, 0x63, 0x6c, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
-	0x12, 0x4e, 0x0a, 0x0d, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x41, 0x72, 0x74, 0x69, 0x63, 0x6c,
-	0x65, 0x12, 0x1d, 0x2e, 0x61, 0x72, 0x74, 0x69, 0x63, 0x6c, 0x65, 0x2e, 0x55, 0x70, 0x64, 0x61,
+	0x28, 0x09, 0x52, 0x09, 0x61, 0x72, 0x74, 0x69, 0x63, 0x6c, 0x65, 0x49, 0x64, 0x32, 0x93, 0x03,
+	0x0a, 0x0e, 0x41, 0x72, 0x74, 0x69, 0x63, 0x6c, 0x65, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65,
+	0x12, 0x4e, 0x0a, 0x0d, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x41, 0x72, 0x74, 0x69, 0x63, 0x6c,
+	0x65, 0x12, 0x1d, 0x2e, 0x61, 0x72, 0x74, 0x69, 0x63, 0x6c, 0x65, 0x2e, 0x43, 0x72, 0x65, 0x61,
 	0x74, 0x65, 0x41, 0x72, 0x74, 0x69, 0x63, 0x6c, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74,
-	0x1a, 0x1e, 0x2e, 0x61, 0x72, 0x74, 0x69, 0x63, 0x6c, 0x65, 0x2e, 0x55, 0x70, 0x64, 0x61, 0x74,
+	0x1a, 0x1e, 0x2e, 0x61, 0x72, 0x74, 0x69, 0x63, 0x6c, 0x65, 0x2e, 0x43, 0x72, 0x65, 0x61, 0x74,
 	0x65, 0x41, 0x72, 0x74, 0x69, 0x63, 0x6c, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
-	0x12, 0x4e, 0x0a, 0x0d, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x41, 0x72, 0x74, 0x69, 0x63, 0x6c,
-	0x65, 0x12, 0x1d, 0x2e, 0x61, 0x72, 0x74, 0x69, 0x63, 0x6c, 0x65, 0x2e, 0x44, 0x65, 0x6c, 0x65,
-	0x74, 0x65, 0x41, 0x72, 0x74, 0x69, 0x63, 0x6c, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74,
-	0x1a, 0x1e, 0x2e, 0x61, 0x72, 0x74, 0x69, 0x63, 0x6c, 0x65, 0x2e, 0x44, 0x65, 0x6c, 0x65, 0x74,
-	0x65, 0x41, 0x72, 0x74, 0x69, 0x63, 0x6c, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
-	0x42, 0x0e, 0x5a, 0x0c, 0x63, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x2f, 0x6d, 0x6f, 0x64, 0x65, 0x6c,
-	0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x12, 0x47, 0x0a, 0x0a, 0x4c, 0x69, 0x73, 0x41, 0x72, 0x74, 0x69, 0x63, 0x6c, 0x65, 0x12, 0x1a,
+	0x2e, 0x61, 0x72, 0x74, 0x69, 0x63, 0x6c, 0x65, 0x2e, 0x4c, 0x69, 0x73, 0x41, 0x72, 0x74, 0x69,
+	0x63, 0x6c, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x1b, 0x2e, 0x61, 0x72, 0x74,
+	0x69, 0x63, 0x6c, 0x65, 0x2e, 0x4c, 0x69, 0x73, 0x41, 0x72, 0x74, 0x69, 0x63, 0x6c, 0x65, 0x52,
+	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x30, 0x01, 0x12, 0x48, 0x0a, 0x0b, 0x52, 0x65, 0x61,
+	0x64, 0x41, 0x72, 0x74, 0x69, 0x63, 0x6c, 0x65, 0x12, 0x1b, 0x2e, 0x61, 0x72, 0x74, 0x69, 0x63,
+	0x6c, 0x65, 0x2e, 0x52, 0x65, 0x61, 0x64, 0x41, 0x72, 0x74, 0x69, 0x63, 0x6c, 0x65, 0x52, 0x65,
+	0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x1c, 0x2e, 0x61, 0x72, 0x74, 0x69, 0x63, 0x6c, 0x65, 0x2e,
+	0x52, 0x65, 0x61, 0x64, 0x41, 0x72, 0x74, 0x69, 0x63, 0x6c, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f,
+	0x6e, 0x73, 0x65, 0x12, 0x4e, 0x0a, 0x0d, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x41, 0x72, 0x74,
+	0x69, 0x63, 0x6c, 0x65, 0x12, 0x1d, 0x2e, 0x61, 0x72, 0x74, 0x69, 0x63, 0x6c, 0x65, 0x2e, 0x55,
+	0x70, 0x64, 0x61, 0x74, 0x65, 0x41, 0x72, 0x74, 0x69, 0x63, 0x6c, 0x65, 0x52, 0x65, 0x71, 0x75,
+	0x65, 0x73, 0x74, 0x1a, 0x1e, 0x2e, 0x61, 0x72, 0x74, 0x69, 0x63, 0x6c, 0x65, 0x2e, 0x55, 0x70,
+	0x64, 0x61, 0x74, 0x65, 0x41, 0x72, 0x74, 0x69, 0x63, 0x6c, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f,
+	0x6e, 0x73, 0x65, 0x12, 0x4e, 0x0a, 0x0d, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x41, 0x72, 0x74,
+	0x69, 0x63, 0x6c, 0x65, 0x12, 0x1d, 0x2e, 0x61, 0x72, 0x74, 0x69, 0x63, 0x6c, 0x65, 0x2e, 0x44,
+	0x65, 0x6c, 0x65, 0x74, 0x65, 0x41, 0x72, 0x74, 0x69, 0x63, 0x6c, 0x65, 0x52, 0x65, 0x71, 0x75,
+	0x65, 0x73, 0x74, 0x1a, 0x1e, 0x2e, 0x61, 0x72, 0x74, 0x69, 0x63, 0x6c, 0x65, 0x2e, 0x44, 0x65,
+	0x6c, 0x65, 0x74, 0x65, 0x41, 0x72, 0x74, 0x69, 0x63, 0x6c, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f,
+	0x6e, 0x73, 0x65, 0x42, 0x0e, 0x5a, 0x0c, 0x63, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x2f, 0x6d, 0x6f,
+	0x64, 0x65, 0x6c, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -667,16 +667,16 @@ var file_common_model_article_proto_depIdxs = []int32{
 	0,  // 3: article.ReadArticleResponse.Article:type_name -> article.Article
 	0,  // 4: article.UpdateArticleRequest.Article:type_name -> article.Article
 	0,  // 5: article.UpdateArticleResponse.Article:type_name -> article.Article
-	1,  // 6: article.BlogService.CreateArticle:input_type -> article.CreateArticleRequest
-	3,  // 7: article.BlogService.LisArticle:input_type -> article.LisArticleRequest
-	5,  // 8: article.BlogService.ReadArticle:input_type -> article.ReadArticleRequest
-	7,  // 9: article.BlogService.UpdateArticle:input_type -> article.UpdateArticleRequest
-	9,  // 10: article.BlogService.DeleteArticle:input_type -> article.DeleteArticleRequest
-	2,  // 11: article.BlogService.CreateArticle:output_type -> article.CreateArticleResponse
-	4,  // 12: article.BlogService.LisArticle:output_type -> article.LisArticleResponse
-	6,  // 13: article.BlogService.ReadArticle:output_type -> article.ReadArticleResponse
-	8,  // 14: article.BlogService.UpdateArticle:output_type -> article.UpdateArticleResponse
-	10, // 15: article.BlogService.DeleteArticle:output_type -> article.DeleteArticleResponse
+	1,  // 6: article.ArticleService.CreateArticle:input_type -> article.CreateArticleRequest
+	3,  // 7: article.ArticleService.LisArticle:input_type -> article.LisArticleRequest
+	5,  // 8: article.ArticleService.ReadArticle:input_type -> article.ReadArticleRequest
+	7,  // 9: article.ArticleService.UpdateArticle:input_type -> article.UpdateArticleRequest
+	9,  // 10: article.ArticleService.DeleteArticle:input_type -> article.DeleteArticleRequest
+	2,  // 11: article.ArticleService.CreateArticle:output_type -> article.CreateArticleResponse
+	4,  // 12: article.ArticleService.LisArticle:output_type -> article.LisArticleResponse
+	6,  // 13: article.ArticleService.ReadArticle:output_type -> article.ReadArticleResponse
+	8,  // 14: article.ArticleService.UpdateArticle:output_type -> article.UpdateArticleResponse
+	10, // 15: article.ArticleService.DeleteArticle:output_type -> article.DeleteArticleResponse
 	11, // [11:16] is the sub-list for method output_type
 	6,  // [6:11] is the sub-list for method input_type
 	6,  // [6:6] is the sub-list for extension type_name
@@ -851,40 +851,40 @@ var _ grpc.ClientConnInterface
 // is compatible with the grpc package it is being compiled against.
 const _ = grpc.SupportPackageIsVersion6
 
-// BlogServiceClient is the client API for BlogService service.
+// ArticleServiceClient is the client API for ArticleService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
-type BlogServiceClient interface {
+type ArticleServiceClient interface {
 	CreateArticle(ctx context.Context, in *CreateArticleRequest, opts ...grpc.CallOption) (*CreateArticleResponse, error)
-	LisArticle(ctx context.Context, in *LisArticleRequest, opts ...grpc.CallOption) (BlogService_LisArticleClient, error)
+	LisArticle(ctx context.Context, in *LisArticleRequest, opts ...grpc.CallOption) (ArticleService_LisArticleClient, error)
 	ReadArticle(ctx context.Context, in *ReadArticleRequest, opts ...grpc.CallOption) (*ReadArticleResponse, error)
 	UpdateArticle(ctx context.Context, in *UpdateArticleRequest, opts ...grpc.CallOption) (*UpdateArticleResponse, error)
 	DeleteArticle(ctx context.Context, in *DeleteArticleRequest, opts ...grpc.CallOption) (*DeleteArticleResponse, error)
 }
 
-type blogServiceClient struct {
+type articleServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewBlogServiceClient(cc grpc.ClientConnInterface) BlogServiceClient {
-	return &blogServiceClient{cc}
+func NewArticleServiceClient(cc grpc.ClientConnInterface) ArticleServiceClient {
+	return &articleServiceClient{cc}
 }
 
-func (c *blogServiceClient) CreateArticle(ctx context.Context, in *CreateArticleRequest, opts ...grpc.CallOption) (*CreateArticleResponse, error) {
+func (c *articleServiceClient) CreateArticle(ctx context.Context, in *CreateArticleRequest, opts ...grpc.CallOption) (*CreateArticleResponse, error) {
 	out := new(CreateArticleResponse)
-	err := c.cc.Invoke(ctx, "/article.BlogService/CreateArticle", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/article.ArticleService/CreateArticle", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *blogServiceClient) LisArticle(ctx context.Context, in *LisArticleRequest, opts ...grpc.CallOption) (BlogService_LisArticleClient, error) {
-	stream, err := c.cc.NewStream(ctx, &_BlogService_serviceDesc.Streams[0], "/article.BlogService/LisArticle", opts...)
+func (c *articleServiceClient) LisArticle(ctx context.Context, in *LisArticleRequest, opts ...grpc.CallOption) (ArticleService_LisArticleClient, error) {
+	stream, err := c.cc.NewStream(ctx, &_ArticleService_serviceDesc.Streams[0], "/article.ArticleService/LisArticle", opts...)
 	if err != nil {
 		return nil, err
 	}
-	x := &blogServiceLisArticleClient{stream}
+	x := &articleServiceLisArticleClient{stream}
 	if err := x.ClientStream.SendMsg(in); err != nil {
 		return nil, err
 	}
@@ -894,16 +894,16 @@ func (c *blogServiceClient) LisArticle(ctx context.Context, in *LisArticleReques
 	return x, nil
 }
 
-type BlogService_LisArticleClient interface {
+type ArticleService_LisArticleClient interface {
 	Recv() (*LisArticleResponse, error)
 	grpc.ClientStream
 }
 
-type blogServiceLisArticleClient struct {
+type articleServiceLisArticleClient struct {
 	grpc.ClientStream
 }
 
-func (x *blogServiceLisArticleClient) Recv() (*LisArticleResponse, error) {
+func (x *articleServiceLisArticleClient) Recv() (*LisArticleResponse, error) {
 	m := new(LisArticleResponse)
 	if err := x.ClientStream.RecvMsg(m); err != nil {
 		return nil, err
@@ -911,184 +911,184 @@ func (x *blogServiceLisArticleClient) Recv() (*LisArticleResponse, error) {
 	return m, nil
 }
 
-func (c *blogServiceClient) ReadArticle(ctx context.Context, in *ReadArticleRequest, opts ...grpc.CallOption) (*ReadArticleResponse, error) {
+func (c *articleServiceClient) ReadArticle(ctx context.Context, in *ReadArticleRequest, opts ...grpc.CallOption) (*ReadArticleResponse, error) {
 	out := new(ReadArticleResponse)
-	err := c.cc.Invoke(ctx, "/article.BlogService/ReadArticle", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/article.ArticleService/ReadArticle", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *blogServiceClient) UpdateArticle(ctx context.Context, in *UpdateArticleRequest, opts ...grpc.CallOption) (*UpdateArticleResponse, error) {
+func (c *articleServiceClient) UpdateArticle(ctx context.Context, in *UpdateArticleRequest, opts ...grpc.CallOption) (*UpdateArticleResponse, error) {
 	out := new(UpdateArticleResponse)
-	err := c.cc.Invoke(ctx, "/article.BlogService/UpdateArticle", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/article.ArticleService/UpdateArticle", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *blogServiceClient) DeleteArticle(ctx context.Context, in *DeleteArticleRequest, opts ...grpc.CallOption) (*DeleteArticleResponse, error) {
+func (c *articleServiceClient) DeleteArticle(ctx context.Context, in *DeleteArticleRequest, opts ...grpc.CallOption) (*DeleteArticleResponse, error) {
 	out := new(DeleteArticleResponse)
-	err := c.cc.Invoke(ctx, "/article.BlogService/DeleteArticle", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/article.ArticleService/DeleteArticle", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// BlogServiceServer is the server API for BlogService service.
-type BlogServiceServer interface {
+// ArticleServiceServer is the server API for ArticleService service.
+type ArticleServiceServer interface {
 	CreateArticle(context.Context, *CreateArticleRequest) (*CreateArticleResponse, error)
-	LisArticle(*LisArticleRequest, BlogService_LisArticleServer) error
+	LisArticle(*LisArticleRequest, ArticleService_LisArticleServer) error
 	ReadArticle(context.Context, *ReadArticleRequest) (*ReadArticleResponse, error)
 	UpdateArticle(context.Context, *UpdateArticleRequest) (*UpdateArticleResponse, error)
 	DeleteArticle(context.Context, *DeleteArticleRequest) (*DeleteArticleResponse, error)
 }
 
-// UnimplementedBlogServiceServer can be embedded to have forward compatible implementations.
-type UnimplementedBlogServiceServer struct {
+// UnimplementedArticleServiceServer can be embedded to have forward compatible implementations.
+type UnimplementedArticleServiceServer struct {
 }
 
-func (*UnimplementedBlogServiceServer) CreateArticle(context.Context, *CreateArticleRequest) (*CreateArticleResponse, error) {
+func (*UnimplementedArticleServiceServer) CreateArticle(context.Context, *CreateArticleRequest) (*CreateArticleResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateArticle not implemented")
 }
-func (*UnimplementedBlogServiceServer) LisArticle(*LisArticleRequest, BlogService_LisArticleServer) error {
+func (*UnimplementedArticleServiceServer) LisArticle(*LisArticleRequest, ArticleService_LisArticleServer) error {
 	return status.Errorf(codes.Unimplemented, "method LisArticle not implemented")
 }
-func (*UnimplementedBlogServiceServer) ReadArticle(context.Context, *ReadArticleRequest) (*ReadArticleResponse, error) {
+func (*UnimplementedArticleServiceServer) ReadArticle(context.Context, *ReadArticleRequest) (*ReadArticleResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ReadArticle not implemented")
 }
-func (*UnimplementedBlogServiceServer) UpdateArticle(context.Context, *UpdateArticleRequest) (*UpdateArticleResponse, error) {
+func (*UnimplementedArticleServiceServer) UpdateArticle(context.Context, *UpdateArticleRequest) (*UpdateArticleResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateArticle not implemented")
 }
-func (*UnimplementedBlogServiceServer) DeleteArticle(context.Context, *DeleteArticleRequest) (*DeleteArticleResponse, error) {
+func (*UnimplementedArticleServiceServer) DeleteArticle(context.Context, *DeleteArticleRequest) (*DeleteArticleResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteArticle not implemented")
 }
 
-func RegisterBlogServiceServer(s *grpc.Server, srv BlogServiceServer) {
-	s.RegisterService(&_BlogService_serviceDesc, srv)
+func RegisterArticleServiceServer(s *grpc.Server, srv ArticleServiceServer) {
+	s.RegisterService(&_ArticleService_serviceDesc, srv)
 }
 
-func _BlogService_CreateArticle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ArticleService_CreateArticle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CreateArticleRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(BlogServiceServer).CreateArticle(ctx, in)
+		return srv.(ArticleServiceServer).CreateArticle(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/article.BlogService/CreateArticle",
+		FullMethod: "/article.ArticleService/CreateArticle",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BlogServiceServer).CreateArticle(ctx, req.(*CreateArticleRequest))
+		return srv.(ArticleServiceServer).CreateArticle(ctx, req.(*CreateArticleRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _BlogService_LisArticle_Handler(srv interface{}, stream grpc.ServerStream) error {
+func _ArticleService_LisArticle_Handler(srv interface{}, stream grpc.ServerStream) error {
 	m := new(LisArticleRequest)
 	if err := stream.RecvMsg(m); err != nil {
 		return err
 	}
-	return srv.(BlogServiceServer).LisArticle(m, &blogServiceLisArticleServer{stream})
+	return srv.(ArticleServiceServer).LisArticle(m, &articleServiceLisArticleServer{stream})
 }
 
-type BlogService_LisArticleServer interface {
+type ArticleService_LisArticleServer interface {
 	Send(*LisArticleResponse) error
 	grpc.ServerStream
 }
 
-type blogServiceLisArticleServer struct {
+type articleServiceLisArticleServer struct {
 	grpc.ServerStream
 }
 
-func (x *blogServiceLisArticleServer) Send(m *LisArticleResponse) error {
+func (x *articleServiceLisArticleServer) Send(m *LisArticleResponse) error {
 	return x.ServerStream.SendMsg(m)
 }
 
-func _BlogService_ReadArticle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ArticleService_ReadArticle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ReadArticleRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(BlogServiceServer).ReadArticle(ctx, in)
+		return srv.(ArticleServiceServer).ReadArticle(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/article.BlogService/ReadArticle",
+		FullMethod: "/article.ArticleService/ReadArticle",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BlogServiceServer).ReadArticle(ctx, req.(*ReadArticleRequest))
+		return srv.(ArticleServiceServer).ReadArticle(ctx, req.(*ReadArticleRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _BlogService_UpdateArticle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ArticleService_UpdateArticle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(UpdateArticleRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(BlogServiceServer).UpdateArticle(ctx, in)
+		return srv.(ArticleServiceServer).UpdateArticle(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/article.BlogService/UpdateArticle",
+		FullMethod: "/article.ArticleService/UpdateArticle",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BlogServiceServer).UpdateArticle(ctx, req.(*UpdateArticleRequest))
+		return srv.(ArticleServiceServer).UpdateArticle(ctx, req.(*UpdateArticleRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _BlogService_DeleteArticle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ArticleService_DeleteArticle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(DeleteArticleRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(BlogServiceServer).DeleteArticle(ctx, in)
+		return srv.(ArticleServiceServer).DeleteArticle(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/article.BlogService/DeleteArticle",
+		FullMethod: "/article.ArticleService/DeleteArticle",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BlogServiceServer).DeleteArticle(ctx, req.(*DeleteArticleRequest))
+		return srv.(ArticleServiceServer).DeleteArticle(ctx, req.(*DeleteArticleRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-var _BlogService_serviceDesc = grpc.ServiceDesc{
-	ServiceName: "article.BlogService",
-	HandlerType: (*BlogServiceServer)(nil),
+var _ArticleService_serviceDesc = grpc.ServiceDesc{
+	ServiceName: "article.ArticleService",
+	HandlerType: (*ArticleServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "CreateArticle",
-			Handler:    _BlogService_CreateArticle_Handler,
+			Handler:    _ArticleService_CreateArticle_Handler,
 		},
 		{
 			MethodName: "ReadArticle",
-			Handler:    _BlogService_ReadArticle_Handler,
+			Handler:    _ArticleService_ReadArticle_Handler,
 		},
 		{
 			MethodName: "UpdateArticle",
-			Handler:    _BlogService_UpdateArticle_Handler,
+			Handler:    _ArticleService_UpdateArticle_Handler,
 		},
 		{
 			MethodName: "DeleteArticle",
-			Handler:    _BlogService_DeleteArticle_Handler,
+			Handler:    _ArticleService_DeleteArticle_Handler,
 		},
 	},
 	Streams: []grpc.StreamDesc{
 		{
 			StreamName:    "LisArticle",
-			Handler:       _BlogService_LisArticle_Handler,
+			Handler:       _ArticleService_LisArticle_Handler,
 			ServerStreams: true,
 		},
 	},

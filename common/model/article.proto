@@ -53,7 +53,7 @@ message DeleteArticleResponse {
 }
 
 
-service BlogService {
+service ArticleService {
     rpc CreateArticle (CreateArticleRequest) returns (CreateArticleResponse);
     rpc LisArticle (LisArticleRequest) returns (stream LisArticleResponse);
     rpc ReadArticle (ReadArticleRequest) returns (ReadArticleResponse); 

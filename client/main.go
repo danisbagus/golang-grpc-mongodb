@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"fmt"
+	"io"
 	"log"
 
 	"github.com/danisbagus/golang-grpc-mongodb/common/config"
@@ -25,7 +26,8 @@ func main() {
 	// readArticle(articleClient)
 	// updateArticle(articleClient)
 	// readArticle(articleClient)
-	deleteArticle(articleClient)
+	// deleteArticle(articleClient)
+	listArticle(articleClient)
 }
 
 func readArticle(client model.ArticleServiceClient) {
@@ -93,4 +95,26 @@ func deleteArticle(client model.ArticleServiceClient) {
 	}
 
 	log.Printf("Article has been deleted: %v\n", res)
+}
+
+func listArticle(client model.ArticleServiceClient) {
+	fmt.Println("List article")
+
+	req := &model.LisArticleRequest{}
+
+	stream, err := client.LisArticle(context.Background(), req)
+	if err != nil {
+		log.Fatalf("Error while calling ListArticle RPC: %v", err)
+	}
+	for {
+		res, err := stream.Recv()
+		if err == io.EOF {
+			break
+		}
+		if err != nil {
+			log.Fatalf("Error while stream article list data: %v", err)
+		}
+
+		fmt.Println(res.GetArticle())
+	}
 }
