@@ -22,9 +22,10 @@ func main() {
 	articleClient := model.NewArticleServiceClient(connection)
 
 	// createArticle(articleClient)
-	readArticle(articleClient)
-	updateArticle(articleClient)
-	readArticle(articleClient)
+	// readArticle(articleClient)
+	// updateArticle(articleClient)
+	// readArticle(articleClient)
+	deleteArticle(articleClient)
 }
 
 func readArticle(client model.ArticleServiceClient) {
@@ -59,7 +60,7 @@ func createArticle(client model.ArticleServiceClient) {
 	log.Printf("Article has been created: %v\n", res)
 }
 
-func updateArticle(clinet model.ArticleServiceClient) {
+func updateArticle(client model.ArticleServiceClient) {
 	fmt.Println("Update article")
 
 	req := &model.UpdateArticleRequest{
@@ -71,10 +72,25 @@ func updateArticle(clinet model.ArticleServiceClient) {
 		},
 	}
 
-	res, err := clinet.UpdateArticle(context.Background(), req)
+	res, err := client.UpdateArticle(context.Background(), req)
 	if err != nil {
 		log.Fatalf("Error while calling UpdateArticle RPC: %v\n", err)
 	}
 
 	log.Printf("Article has been updated: %v\n", res)
+}
+
+func deleteArticle(client model.ArticleServiceClient) {
+	fmt.Println("Delete article")
+
+	req := &model.DeleteArticleRequest{
+		ArticleId: "61413edfbeae4038836d9e0e",
+	}
+
+	res, err := client.DeleteArticle(context.Background(), req)
+	if err != nil {
+		log.Fatalf("Error while calling DeleteArticle RPC: %v\n", err)
+	}
+
+	log.Printf("Article has been deleted: %v\n", res)
 }
