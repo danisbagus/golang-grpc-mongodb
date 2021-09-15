@@ -8,6 +8,7 @@ type IArticleUsecase interface {
 	CreateArticle(data *repo.Article) (*repo.Article, error)
 	GetDetail(articleID string) (*repo.Article, error)
 	UpdateArticle(articleID string, data *repo.Article) (*repo.Article, error)
+	DeleteArticle(articleID string) error
 }
 
 type ArticleUsecase struct {
@@ -42,4 +43,12 @@ func (r ArticleUsecase) UpdateArticle(articleID string, data *repo.Article) (*re
 		return nil, err
 	}
 	return data, nil
+}
+
+func (r ArticleUsecase) DeleteArticle(articleID string) error {
+	err := r.repo.Delete(articleID)
+	if err != nil {
+		return err
+	}
+	return nil
 }

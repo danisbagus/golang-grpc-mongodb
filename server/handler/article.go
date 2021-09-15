@@ -65,3 +65,18 @@ func (r ServerHandler) UpdateArticle(ctx context.Context, req *model.UpdateArtic
 
 	return response, nil
 }
+
+func (r ServerHandler) DeleteArticle(ctx context.Context, req *model.DeleteArticleRequest) (*model.DeleteArticleResponse, error) {
+	fmt.Println("Delete article request")
+
+	articleID := req.GetArticleId()
+
+	err := r.usecase.DeleteArticle(articleID)
+	if err != nil {
+		return nil, err
+	}
+
+	return &model.DeleteArticleResponse{
+		ArticleId: req.ArticleId,
+	}, nil
+}

@@ -22,6 +22,7 @@ type IArticleRepo interface {
 	Create(data *Article) (*Article, error)
 	GetOneByID(articleID string) (*Article, error)
 	Update(articleID string, data *Article) (*Article, error)
+	Delete(articleID string) error
 }
 
 type ArticleRepo struct {
@@ -131,4 +132,44 @@ func (r ArticleRepo) Update(articleID string, data *Article) (*Article, error) {
 	}
 
 	return article, nil
+}
+
+func (r ArticleRepo) Delete(articleID string) error {
+	oid, err := primitive.ObjectIDFromHex(articleID)
+	if err != nil {
+		return status.Errorf(
+			codes.InvalidArgument,
+			fmt.Sprintf("Cannot parse ID: %v", err),
+		)
+	}
+
+	filter := bson.M{"_id": oid}
+	article := &Article{}
+
+	collection := r.db.Database("golang_grpc_mongodb").Collection("articles")
+
+	res := collection.FindOne(context.TODO(), filter)
+	if err := res.Decode(article); err != nil {
+		if err == mongo.ErrNoDocuments {
+			return status.Errorf(
+				codes.NotFound,
+				fmt.Sprintf("[Delete] Cannot find article with specified ID: %v, error: %v", oid, err),
+			)
+		} else {
+			return status.Errorf(
+				codes.Internal,
+				fmt.Sprintf("[Delete] Internal error: %v", err),
+			)
+		}
+	}
+
+	_, errDelete := collection.DeleteOne(context.TODO(), filter)
+	if errDelete != nil {
+		return status.Errorf(
+			codes.Internal,
+			fmt.Sprintf("[Delete] Error on delete article: %v", err),
+		)
+	}
+
+	return nil
 }
