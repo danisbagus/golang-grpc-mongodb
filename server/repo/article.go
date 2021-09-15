@@ -20,6 +20,7 @@ type Article struct {
 
 type IArticleRepo interface {
 	Create(data *Article) (*Article, error)
+	GetAll() ([]Article, error)
 	GetOneByID(articleID string) (*Article, error)
 	Update(articleID string, data *Article) (*Article, error)
 	Delete(articleID string) error
@@ -56,6 +57,35 @@ func (r ArticleRepo) Create(data *Article) (*Article, error) {
 
 	data.ID = oid
 	return data, nil
+}
+
+func (r ArticleRepo) GetAll() ([]Article, error) {
+	filter := bson.M{}
+	articles := make([]Article, 0)
+
+	collection := r.db.Database("golang_grpc_mongodb").Collection("articles")
+
+	cur, err := collection.Find(context.TODO(), filter)
+	if err != nil {
+		return nil, status.Errorf(
+			codes.Internal,
+			fmt.Sprintf("[GetAll] Internal error: %v", err),
+		)
+	}
+	for cur.Next(context.TODO()) {
+		var article Article
+		err = cur.Decode(&article)
+		if err != nil {
+
+			return nil, status.Errorf(
+				codes.Internal,
+				fmt.Sprintf("[GetAll] Error on decoding the articles: %v", err),
+			)
+		}
+		articles = append(articles, article)
+	}
+
+	return articles, nil
 }
 
 func (r ArticleRepo) GetOneByID(articleID string) (*Article, error) {

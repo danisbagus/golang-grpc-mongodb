@@ -6,6 +6,7 @@ import (
 
 type IArticleUsecase interface {
 	CreateArticle(data *repo.Article) (*repo.Article, error)
+	GetAll() ([]repo.Article, error)
 	GetDetail(articleID string) (*repo.Article, error)
 	UpdateArticle(articleID string, data *repo.Article) (*repo.Article, error)
 	DeleteArticle(articleID string) error
@@ -27,6 +28,14 @@ func (r ArticleUsecase) CreateArticle(data *repo.Article) (*repo.Article, error)
 		return nil, err
 	}
 	return res, nil
+}
+
+func (r ArticleUsecase) GetAll() ([]repo.Article, error) {
+	data, err := r.repo.GetAll()
+	if err != nil {
+		return nil, err
+	}
+	return data, nil
 }
 
 func (r ArticleUsecase) GetDetail(articleID string) (*repo.Article, error) {

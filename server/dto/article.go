@@ -5,6 +5,24 @@ import (
 	"github.com/danisbagus/golang-grpc-mongodb/server/repo"
 )
 
+func NewGetListArticleResponse(data []repo.Article) []model.LisArticleResponse {
+	dataList := make([]model.LisArticleResponse, len(data))
+
+	for k, v := range data {
+		article := &model.Article{
+			Id:       v.ID.Hex(),
+			AuthorId: v.AuthorID,
+			Content:  v.Content,
+			Title:    v.Title,
+		}
+
+		dataList[k] = model.LisArticleResponse{
+			Article: article,
+		}
+	}
+	return dataList
+}
+
 func NewGetDetailArticleResponse(data *repo.Article) *model.ReadArticleResponse {
 	article := &model.Article{
 		Id:       data.ID.Hex(),
