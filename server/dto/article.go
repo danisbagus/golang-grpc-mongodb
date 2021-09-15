@@ -38,3 +38,24 @@ func NewCreateArticleRequest(data *model.Article) *repo.Article {
 		Content:  data.Content,
 	}
 }
+
+func NewUpdateArticleRequest(data *model.Article) *repo.Article {
+	return &repo.Article{
+		AuthorID: data.AuthorId,
+		Title:    data.Title,
+		Content:  data.Content,
+	}
+}
+
+func NewUpdateArticleResponse(data *repo.Article) *model.UpdateArticleResponse {
+	article := &model.Article{
+		Id:       data.ID.Hex(),
+		AuthorId: data.AuthorID,
+		Content:  data.Content,
+		Title:    data.Title,
+	}
+
+	return &model.UpdateArticleResponse{
+		Article: article,
+	}
+}

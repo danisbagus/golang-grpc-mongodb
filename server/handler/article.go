@@ -22,7 +22,7 @@ func NewArticleHandler(usecase usecase.IArticleUsecase) *ServerHandler {
 func (r ServerHandler) CreateArticle(ctx context.Context, req *model.CreateArticleRequest) (*model.CreateArticleResponse, error) {
 	fmt.Println("Create article request")
 
-	article := dto.NewCreateArticleRequest(req.Article)
+	article := dto.NewCreateArticleRequest(req.GetArticle())
 
 	data, err := r.usecase.CreateArticle(article)
 	if err != nil {
@@ -48,4 +48,20 @@ func (r ServerHandler) ReadArticle(ctx context.Context, req *model.ReadArticleRe
 
 	return response, nil
 
+}
+
+func (r ServerHandler) UpdateArticle(ctx context.Context, req *model.UpdateArticleRequest) (*model.UpdateArticleResponse, error) {
+	fmt.Println("Update article request")
+
+	article := dto.NewUpdateArticleRequest(req.GetArticle())
+	articleID := req.GetArticle().GetId()
+
+	data, err := r.usecase.UpdateArticle(articleID, article)
+	if err != nil {
+		return nil, err
+	}
+
+	response := dto.NewUpdateArticleResponse(data)
+
+	return response, nil
 }

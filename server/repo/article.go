@@ -21,6 +21,7 @@ type Article struct {
 type IArticleRepo interface {
 	Create(data *Article) (*Article, error)
 	GetOneByID(articleID string) (*Article, error)
+	Update(articleID string, data *Article) (*Article, error)
 }
 
 type ArticleRepo struct {
@@ -86,4 +87,48 @@ func (r ArticleRepo) GetOneByID(articleID string) (*Article, error) {
 	}
 
 	return data, nil
+}
+
+func (r ArticleRepo) Update(articleID string, data *Article) (*Article, error) {
+	oid, err := primitive.ObjectIDFromHex(articleID)
+	if err != nil {
+		return nil, status.Errorf(
+			codes.InvalidArgument,
+			fmt.Sprintf("Cannot parse ID: %v", err),
+		)
+	}
+
+	filter := bson.M{"_id": oid}
+	article := &Article{}
+
+	collection := r.db.Database("golang_grpc_mongodb").Collection("articles")
+
+	res := collection.FindOne(context.TODO(), filter)
+	if err := res.Decode(article); err != nil {
+		if err == mongo.ErrNoDocuments {
+			return nil, status.Errorf(
+				codes.NotFound,
+				fmt.Sprintf("[Update] Cannot find article with specified ID: %v, error: %v", oid, err),
+			)
+		} else {
+			return nil, status.Errorf(
+				codes.Internal,
+				fmt.Sprintf("[Update] Internal error: %v", err),
+			)
+		}
+	}
+
+	article.AuthorID = data.AuthorID
+	article.Title = data.Title
+	article.Content = data.Content
+
+	_, updatErr := collection.ReplaceOne(context.TODO(), filter, article)
+	if updatErr != nil {
+		return nil, status.Errorf(
+			codes.Internal,
+			fmt.Sprintf("[Update] Error on update article: %v", err),
+		)
+	}
+
+	return article, nil
 }
