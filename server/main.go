@@ -5,6 +5,8 @@ import (
 	"fmt"
 	"log"
 	"net"
+	"os"
+	"os/signal"
 
 	"github.com/danisbagus/golang-grpc-mongodb/common/config"
 	"github.com/danisbagus/golang-grpc-mongodb/common/model"
@@ -23,6 +25,9 @@ type server struct {
 }
 
 func main() {
+	// jika kode mengalami crash, nomor line akan ditampilkan
+	log.SetFlags(log.LstdFlags | log.Lshortfile)
+
 	fmt.Println("Running server...")
 
 	client := GetClient()
@@ -33,6 +38,7 @@ func main() {
 		fmt.Println("Connected to MongoDB")
 	}
 
+	// membuat gRPC server
 	listen, err := net.Listen("tcp", config.SERVER_ARTICLE_PORT)
 	if err != nil {
 		log.Fatalf("Failed to listen. %v", err)
@@ -45,11 +51,28 @@ func main() {
 	articleUseCase := usecase.NewArticleUsecase(articleRepo)
 	handler := handler.NewArticleHandler(articleUseCase)
 
+	// melakukan register ArticleServiceServer
 	model.RegisterArticleServiceServer(srv, handler)
 
-	if err := srv.Serve(listen); err != nil {
-		log.Fatalf("Failed to serve. %v", err)
-	}
+	go func() {
+		fmt.Println("Starting server...")
+		if err := srv.Serve(listen); err != nil {
+			log.Fatalf("Failed to serve. %v", err)
+		}
+	}()
+
+	// Menunggu hingga dihentikan dengan Ctrl + C
+	ch := make(chan os.Signal, 1)
+	signal.Notify(ch, os.Interrupt)
+
+	// Lakukan block hingga sinyal sudah didapatkan
+	<-ch
+	fmt.Println("Stopping the server..")
+	srv.Stop()
+	fmt.Println("Stopping listener...")
+	listen.Close()
+	fmt.Println("End of Program")
+
 }
 
 func GetClient() *mongo.Client {
@@ -57,7 +80,7 @@ func GetClient() *mongo.Client {
 
 	cred.AuthSource = "admin"
 	cred.Username = "root"
-	cred.Password = "danisbagus"
+	cred.Password = "pwd123"
 
 	clientOptions := options.Client().ApplyURI("mongodb://localhost:27017").SetAuth(cred) // Connect to //MongoDB
 	client, err := mongo.Connect(context.TODO(), clientOptions)
