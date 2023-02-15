@@ -36,3 +36,10 @@ Run The client
 
 ```bash
 go run client/main.go
+```
+
+Run The api gateway
+
+```bash
+go run api-gateway/main.go
+```
