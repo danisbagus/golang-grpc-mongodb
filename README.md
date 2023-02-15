@@ -32,12 +32,6 @@ Run The server
 go run server/main.go
 ```
 
-Run The client
-
-```bash
-go run client/main.go
-```
-
 Run The api gateway
 
 ```bash
