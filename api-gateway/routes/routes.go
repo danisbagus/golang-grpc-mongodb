@@ -22,5 +22,8 @@ func ApiRoutes(route *echo.Echo) {
 
 	articleRoutes := route.Group(("/api/article"))
 	articleRoutes.GET("", articleHandler.ListArticle)
+	articleRoutes.GET("/:id", articleHandler.ReadArticle)
 	articleRoutes.POST("", articleHandler.CreateArticle)
+	articleRoutes.PUT("/:id", articleHandler.UpdateArticle)
+	articleRoutes.DELETE("/:id", articleHandler.DeleteArticle)
 }

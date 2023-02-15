@@ -21,12 +21,12 @@ func NewArticleHandler(client model.ArticleServiceClient) *ArticleHandler {
 }
 
 func (h *ArticleHandler) CreateArticle(c echo.Context) error {
-	reqBody := CreateArticleRequest{}
+	reqBody := ArticleRequest{}
 	if err := c.Bind(&reqBody); err != nil {
 		return echo.NewHTTPError(http.StatusBadRequest, err.Error())
 	}
 
-	reqModel := &model.CreateArticleRequest{
+	req := &model.CreateArticleRequest{
 		Article: &model.Article{
 			AuthorId: reqBody.AuthorId,
 			Title:    reqBody.Title,
@@ -34,7 +34,7 @@ func (h *ArticleHandler) CreateArticle(c echo.Context) error {
 		},
 	}
 
-	res, err := h.client.CreateArticle(context.Background(), reqModel)
+	res, err := h.client.CreateArticle(context.Background(), req)
 	if err != nil {
 		return c.JSON(http.StatusInternalServerError, map[string]interface{}{
 			"message": fmt.Sprintf("error while calling CreateArticle RPC: %v", err),
@@ -91,5 +91,89 @@ func (h *ArticleHandler) ListArticle(c echo.Context) error {
 	return c.JSON(http.StatusOK, map[string]interface{}{
 		"message": "successfully get list article",
 		"data":    data,
+	})
+}
+
+func (h *ArticleHandler) ReadArticle(c echo.Context) error {
+	articleID := c.Param("id")
+
+	req := &model.ReadArticleRequest{ArticleId: articleID}
+	res, err := h.client.ReadArticle(context.Background(), req)
+	if err != nil {
+		return c.JSON(http.StatusInternalServerError, map[string]interface{}{
+			"message": fmt.Sprintf("error while calling ReadArticle RPC: %v", err),
+			"data":    nil,
+		})
+	}
+
+	data := ArticleResponse{
+		Id:       res.Article.Id,
+		AuthorId: res.Article.AuthorId,
+		Title:    res.Article.Title,
+		Content:  res.Article.Content,
+	}
+
+	return c.JSON(http.StatusOK, map[string]interface{}{
+		"message": "successfully read article",
+		"data":    data,
+	})
+}
+
+func (h *ArticleHandler) UpdateArticle(c echo.Context) error {
+	articleID := c.Param("id")
+
+	reqBody := ArticleRequest{}
+	if err := c.Bind(&reqBody); err != nil {
+		return echo.NewHTTPError(http.StatusBadRequest, err.Error())
+	}
+
+	req := &model.UpdateArticleRequest{
+		Article: &model.Article{
+			Id:       articleID,
+			AuthorId: reqBody.AuthorId,
+			Title:    reqBody.Title,
+			Content:  reqBody.Content,
+		},
+	}
+
+	res, err := h.client.UpdateArticle(context.Background(), req)
+	if err != nil {
+		return c.JSON(http.StatusInternalServerError, map[string]interface{}{
+			"message": fmt.Sprintf("error while calling UpdateArticle RPC: %v", err),
+			"data":    nil,
+		})
+	}
+
+	data := ArticleResponse{
+		Id:       res.Article.Id,
+		AuthorId: res.Article.AuthorId,
+		Title:    res.Article.Title,
+		Content:  res.Article.Content,
+	}
+
+	return c.JSON(http.StatusOK, map[string]interface{}{
+		"message": "successfully update article",
+		"data":    data,
+	})
+}
+
+func (h *ArticleHandler) DeleteArticle(c echo.Context) error {
+	articleID := c.Param("id")
+
+	req := &model.DeleteArticleRequest{
+		ArticleId: articleID,
+	}
+
+	_, err := h.client.DeleteArticle(context.Background(), req)
+	if err != nil {
+		return c.JSON(http.StatusInternalServerError, map[string]interface{}{
+			"message": fmt.Sprintf("error while calling DeleteArticle RPC: %v", err),
+			"data":    nil,
+		})
+	}
+
+	return c.JSON(http.StatusOK, map[string]interface{}{
+		"message": "successfully delete article",
+		"data":    nil,
 	})
 }
